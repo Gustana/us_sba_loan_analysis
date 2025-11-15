@@ -1,2 +1,4 @@
 notebook/dataset/SBAcase.11.13.17.csv
 *.docx
+.env
+__pycache__
