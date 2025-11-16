@@ -1,3 +1,5 @@
+import os
+
 from dotenv import load_dotenv
 import psycopg2
 
@@ -10,7 +12,7 @@ class Connection:
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def __init__(self, user: str, password: str, host: str, db_name: str, port: int):
+    def __init__(self):
         """
         Params:
             user (str): user
@@ -20,13 +22,15 @@ class Connection:
             port (int): database port
         """
 
+        load_dotenv()
+
         if not self._initialized:
             self.connection = psycopg2.connect(
-                user = user,
-                password = password,
-                host = host,
-                database = db_name,
-                port = port
+                user = os.getenv("DB_USER"),
+                password = os.getenv("DB_PASS"),
+                host = os.getenv("DB_HOST"),
+                database = os.getenv("DB_NAME"),
+                port = os.getenv("DB_PORT")
             )
 
             self.cursor = self.connection.cursor()
