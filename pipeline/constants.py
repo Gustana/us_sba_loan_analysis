@@ -1,0 +1,37 @@
+class Constants:
+    RAW_DATE_FORMAT = "%d-%b-%y"
+    CLEAN_DATE_FORMAT = "%Y-%m-%d"
+
+    # constants for column names
+    LOAN_ID = "loannr_chkdgt"
+    DEBTOR_NAME = "name"
+    DEBTOR_ORIGIN_CITY = "city"
+    DEBTOR_ORIGIN_STATE = "state"	
+    DEBTOR_ORIGIN_ZIP_CODE = "zip"
+    DEBTOR_EMPLOYEE_NUMBER = "noemp"
+    DEBTOR_NEW_OR_EXIST = "newexist"	
+    NUMBER_JOB_RETAINED = "retainedjob"
+    DEBTOR_FRANCHISE_CODE = "franchisecode"
+    DEBTOR_URBAN_RURAL_INFO = "urbanrural"
+    NUMBER_NEW_JOB_CREATED = "createjob"
+    NAICS_CODE = "naics"
+    LOW_DOC_PROGRAM = "lowdoc"
+    GUARANTOR_BANK_NAME = "bank"
+    GUARANTOR_BANK_STATE = "bankstate" 
+    LOAN_APPROVAL_DATE = "approvaldate"	
+    LOAN_APPROVAL_FY = "approvalfy"
+    TERM_DURATION = "term"
+    REV_LINE_CREDIT = "revlinecr"	
+    CHARGED_OFF_DATE = "chgoffdate"
+    DISBURSEMENT_DATE = "disbursementdate"
+    DISBURESEMENT_GROSS = "disbursementgross"
+    OUTSTANDING_BALANCE = "balancegross"
+    LOAN_STATUS = "mis_status"
+    CREDIT_CHARGED_OFF_AMOUNT = "chgoffpringr"
+    BANK_APPROVED_CREDIT_AMOUNT = "grappv"
+    SBA_APPROVED_CREDIT_AMOUNT = "sba_appv"
+    IS_DATA_VERIFICATION_NEEDED = "needs_to_verify"
+    DATA_VERIFICATION_REASONS = "verify_reasons"
+
+    VALID_REVOLVING_CREDIT_CODES = ["Y", "N"]
+    VALID_LOW_DOC_CODES = ["Y", "N"]
