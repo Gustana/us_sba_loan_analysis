@@ -2,8 +2,8 @@ from datetime import datetime
 from typing import Union
 
 from pipeline.constants import Constants
-from pipeline.helper.common.utils import Utils
-from pipeline.model.inspection_result import InspectionResultModel
+from pipeline.helpers.commons.utils import Utils
+from pipeline.models.inspection_result import InspectionResultModel
 
 class DataCleaningService:
     def _is_value_null(self, value: Union[int, str, None]) -> bool:
