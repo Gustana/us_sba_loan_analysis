@@ -6,10 +6,10 @@ from pipeline.helpers.commons.utils import Utils
 from pipeline.models.inspection_result import InspectionResultModel
 
 class DataCleaningService:
-    def _is_value_null(self, value: Union[int, str, None]) -> bool:
+    def _is_value_null(self, value: Union[int, str, float, None]) -> bool:
         """
         Params:
-            value (int or str or None): value to inspect
+            value (int | str | float | None): value to inspect
 
         Returns:
             boolean: True if given value is none
@@ -18,20 +18,20 @@ class DataCleaningService:
 
     def _generate_inspection_results(
         self,
-        actual_value: Union[str, int, None], 
+        actual_value: Union[str, int, float, None], 
         verify_reasons: Union[str, None] = None,
-        new_value_to_assign: Union[str, int, None] = None
+        new_value_to_assign: Union[str, int, float, None] = None
     ) -> InspectionResultModel:
         """
         Params
         ------
             field_to_inspect: str 
                 field name to inspect
-            actual_value: str or int or None
+            actual_value: str | int | float | None
                 actual value from the field
             verify_reasons: str or None, optional
                 reasons why further verification needed
-            new_value_to_assign: str or int or None, optional
+            new_value_to_assign: str | int | float | None, optional
                 new value to assign
 
         Returns:
@@ -78,7 +78,21 @@ class DataCleaningService:
             return self._generate_inspection_results(name, f"missing value on {Constants.DEBTOR_NAME}")
         
         return self._generate_inspection_results(name)
+    
+    def inspect_debtor_state(self, state: Union[str, None]) -> InspectionResultModel:
+        """
+        Params:
+            state (str or None): debtor's origin state
+
+        Returns:
+            InspectionResultModel: inspection results model
+        """
+
+        if self._is_value_null(state):
+            return self._generate_inspection_results(state, f"missing value on {Constants.DEBTOR_ORIGIN_STATE}")
         
+        return self._generate_inspection_results(state)
+    
     def inspect_zip(self, zip_code: Union[str, None]) -> InspectionResultModel:
         """
         Params:
